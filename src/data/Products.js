@@ -69,7 +69,7 @@ export const products = [
       img: 'https://media.alltricks.com/large/5b9b69a8d8807.jpg',
       desc: 'Chopper Bike',
       price: 1800,
-      category: 'BeachCruiser',
+      category: 'BeachCruiserhttp://localhost:5178/',
     },
     {
       id: 10,
@@ -145,8 +145,8 @@ export const products = [
     },
     {
       id: 19,
-      title: 'Schock proof',
-      img: 'https://ae01.alicdn.com/kf/S4512e5b2a07c445fa4328d6939a0b08cs.jpg_640x640Q90.jpg_.webp',
+      title: 'Bike Glasses',
+      img: 'https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/11/2022/04/MBR272.product.julbo_fury_reactive.jpg',
       desc: '',
       price: 170,
       category: 'clothing',

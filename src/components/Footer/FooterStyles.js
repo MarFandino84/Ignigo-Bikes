@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FooterStyles = styled.footer`
  
  min-height: calc(20vh - 5px);
- margin-top: 5em;
+ margin-top: 0.5em;
  display: flex;
  padding: 0 1em;
  justify-content: space-between; align-items: center;

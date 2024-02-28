@@ -29,7 +29,6 @@ const ProductList = () => {
      return cat.category.toLowerCase() == selectCat
   })
 
-  console.log(filterCategory);
   
 
   return (

@@ -1,21 +1,13 @@
 import React from 'react'
 import { ContainerSection } from './HomeStyles'
-import { products } from '../../data/Products'
-
-
 
 
 const Home = () => {
   return (
     <>
     <ContainerSection>
-      
-         {/* <img src={`https://cdn11.bigcommerce.com/s-ut3fm1akrh/images/stencil/1280x1280/products/399/683/LoopFront__84728.1624302706.png?c=2`} />
-         <img src={`https://cdn11.bigcommerce.com/s-ut3fm1akrh/images/stencil/1280x1280/products/399/683/LoopFront__84728.1624302706.png?c=2`} />
-         <img src={`https://cdn11.bigcommerce.com/s-ut3fm1akrh/images/stencil/1280x1280/products/399/683/LoopFront__84728.1624302706.png?c=2`} />
-         <img src={`https://cdn11.bigcommerce.com/s-ut3fm1akrh/images/stencil/1280x1280/products/399/683/LoopFront__84728.1624302706.png?c=2`} /> */}
-
-
+      <h3>Welcome to Ignigo Bikes</h3>
+      <img src={"https://images.france.fr/zeaejvyq9bhj/5KHIvJAK6CFENAvDFz0qJ/fd14e48c3b69726031bf6b18efc1185e/tour-de-france.jpg?w=1120&h=490&q=70&fl=progressive&fit=fill"} />
     </ContainerSection>
 
 

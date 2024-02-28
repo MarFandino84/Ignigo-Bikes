@@ -1,26 +1,24 @@
 import styled from "styled-components"
 
 
-export const ContainerSection = styled.section`
+export const ContainerSection = styled.div`
 
 display: flex;
-width: 100vw; height: 65vh;
-z-index: -15;
+justify-content: center; align-items: center;
+width: 100%; height: 100%;
+position: relative;
 
 img {
-    width : 0 ;
-    opacity: 0.8; 
-      flex-grow: 1;
-      transition: ease 0.5s;
-     object-fit: cover;
-
-&:hover {
-     opacity: 1;
-     width: 30vw;
-
+    width: auto;
+    object-fit: cover;
+    aspect-ratio: 16/ 9;
 }
-
- 
+h3 {
+      font-style: italic;
+      font-size: 3em;
+      position: absolute;
+      top: 1em; 
+      right: 15%;
 }
 
 

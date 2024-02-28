@@ -1,12 +1,10 @@
 import React from 'react'
 import { UserFormStyled, Container } from './UserFormStyles'
-import { useFormik} from "formik"
+import { Formik, useFormik} from "formik"
 import * as Yup from "yup"
-
-
+import TextImput from './TextImput'
 
 var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-
 
 const onSubmit = () => {
      console.log("submitted");
@@ -14,76 +12,71 @@ const onSubmit = () => {
 
 const solidSchema = Yup.object({
      name: Yup.string().trim().min(2).required("Required Field"),
-     password: Yup.string().matches(strongRegex, "At least 1 Lowercase, Uppercase, numeric and special character").required("Required")
+     password: Yup.string().matches(strongRegex, "At least 1 Lowercase, Uppercase, numeric and special character").required("Required"),
+     surname: Yup.string().trim().min(2).required("Required Field"),
+     email: Yup.string().email("invalid email").required("must enter a password")   
 })
 
 const UserForm = () => {
-  
-     const {values , errors, handleSubmit, handleChange } = useFormik({
-      initialValues:{
+     return (    
+     <Formik initialValues={{
          name:"",
          surname:"",
          email:"",
-         password: ""
+         password: "",
 
-      },
-      onSubmit: values => {
-        alert(JSON.stringify(values, null, 2));
-      },
-      validationSchema: solidSchema
-     },
-     onSubmit 
-     )
+      }}
+      validationSchema={solidSchema}
+      onSubmit={(values) => {
+            console.log(values);
+        
+      }}
+      
 
-    return (
-    <>
-         <Container>    
-         <UserFormStyled onSubmit={handleSubmit}>
-            <input 
+      >
+      {({errors, touched}) =>   
+      <Container>    
+         <UserFormStyled >
+            <TextImput
             name='name'
-            id='name'
-            value={values.name}
-            onChange={handleChange}
+            label="Name"
             placeholder='Name'
             type='text'
             
             />
+            {errors.name && touched.name ? <span>{errors.name}</span>  : null }
             
-            <input 
+            <TextImput 
             type='text'
             name='surname'
-            id='surname'
-            value={values.surname}
-            onChange={handleChange}
-            placeholder='Surname'
+            label='Last Name'
+            placeholder='Last Name'
            
             />
-            <input 
+            {errors.surname && touched.surname ? <span>{errors.surname}</span>  : null }
+            <TextImput 
             name='email'
-            id='email'
-            value={values.email}
-            onChange={handleChange}
+            label='E-Mail'
             placeholder='E-mail'
             type='email'
             />
-            <input 
+            {errors.email && touched.email ? <span>{errors.email}</span>  : null }
+            <TextImput
             name='password'
-            id='password'
-            value={values.password}
-            onChange={handleChange}
+            label='Password'
             placeholder='Password'
             type='password'
             
             />
+            {errors.password && touched.password ? <span>{errors.password}</span>  : null }
         <button type='submit'>Submit</button>
-
-
-
-
+             
          </UserFormStyled>
-         </Container>
-
-    </>
+         </Container>}
+         
+         </Formik>
+              
+    
   )
 }
 

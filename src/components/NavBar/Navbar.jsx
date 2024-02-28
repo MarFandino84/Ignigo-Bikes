@@ -21,10 +21,24 @@ const Navbar = () => {
 
   const handleClick = (e) => {
       dispatch(selectedCategory(e.target.id));
-       setMenuProd(false)
-   }
+      setMenuProd(false)
+      setProdQuery(false)
+      setOpen(false)
+  }
+  
+  const btnRef = useRef()
+  
+  useEffect(() => {
+        const closeDropdown = e => {
+            if (!btnRef.current.contains(e.target)) {
+                setMenuProd(false);
+            }
+        }
+        document.body.addEventListener('click', closeDropdown)
+        return () => document.body.removeEventListener('click', closeDropdown)
+    }, [])
+  
 
-     
   return (  
     <>
     <TopNavbarStyle><p>Free Shipping over $50</p></TopNavbarStyle>
@@ -32,10 +46,14 @@ const Navbar = () => {
            <img alt='logo' src={Logo} onClick={() => navigate("/")} />
                  <ul>
                       <li><NavLinkStyles to={"/"}>Home</NavLinkStyles></li>
-                      <li onClick={() => setMenuProd(!menuProd)}> <NavLinkStyles to={"Products"}>Products</NavLinkStyles></li>
+                      <li ref={btnRef} onClick={() => setMenuProd(!menuProd)}> <NavLinkStyles to={"Products"}>Products</NavLinkStyles></li>
                       {menuProd && 
                         <AnimatePresence>
-                            <DropProd initial={{ translateY: 500 }} animate={{ translateY: 0 }} exit={{ translateY: 500 }} transition={{ type: 'keyframes', damping: 5 }}>
+                            <DropProd 
+                            initial={{ translateY: 500 }} 
+                            animate={{ translateY: 0 }} 
+                            exit={{ translateY: 500 }} 
+                            transition={{ type: 'keyframes', damping: 5 }}>
                               <li onClick={handleClick} id=''>All</li>
                               <li onClick={handleClick} id='urbanbikes'>Urban Bikes</li>
                               <li onClick={handleClick} id='roadbike'>Road Bikes</li>
@@ -44,42 +62,41 @@ const Navbar = () => {
                               <li onClick={handleClick} id='components'>Components</li>
                               <li onClick={handleClick} id='clothing'>Clothing</li>
                               <li onClick={handleClick} id='tools'>Tools</li>      
-                              <li onClick={(e) => dispatch(selectedCategory(e.target.id))} id='accesory'>Accesories</li>
+                              <li onClick={handleClick} id='accesory'>Accesories</li>
                             </DropProd>
                         </AnimatePresence>                   
                       }
                             <li> <NavLinkStyles to={"FAQ"}>FAQ</NavLinkStyles></li>
-                            <li> <NavLinkStyles to={"Sign in"}>Sign in</NavLinkStyles></li>
+                            <li> <NavLinkStyles to={"Sign in"}>Newsletter</NavLinkStyles></li>
                             <li><NavLinkStyles to={"Cart"} ><FaShoppingCart />{subtotal > 0 && subtotal}</NavLinkStyles></li>
                   </ul>
 
-                       <HambMenu onClick={() => setOpen(!open)} >
+                      <HambMenu onClick={() => setOpen(!open)} >
                           <div></div>                    
                           <div></div>                    
                           <div></div>
-                        </HambMenu>                    
+                      </HambMenu>                    
               <AnimatePresence>
               {open &&     
-               <DropDownMenu  initial={{ translateX: 500 }}
+               <DropDownMenu  
+               initial={{ translateX: 500 }}
                animate={{ translateX: 0 }}
                exit={{ translateX: 500 }}
-               transition={{ type: 'spring', damping: 27 }} >
+               transition={{ type: 'keyframes', damping: 5  }} >
                    <NavLinkStyles onClick={() => setOpen(false)}  to={"/"}>Home</NavLinkStyles>
                    <NavLinkStyles onClick={() => setProdQuery(!prodQuery)} to={"Products"}>Products</NavLinkStyles>
                    {prodQuery && <DisplayQueryProd>                             
-                                     <li onClick={handleClick} id=''>All</li>
-                                     <p onClick={handleClick} id=''>All</p>                        
+                                     <p onClick={handleClick} id='All'>All</p>                        
                                      <p onClick={handleClick} id='urbanbikes'>Urban Bikes</p>
-                                      <p onClick={handleClick} id='roadbike'>Road Bikes</p>
+                                     <p onClick={handleClick} id='roadbike'>Road Bikes</p>
                                      <p onClick={handleClick} id='mtb'>Mountain Bikes</p>
                                      <p onClick={handleClick} id='beachcruiser'>Beach Cruiser</p>
                                      <p onClick={handleClick} id='components'>Components</p>
                                      <p onClick={handleClick} id='clothing'>Clothing</p>
                                      <p onClick={handleClick} id='tools'>Tools</p>   
-                                
-                                 </DisplayQueryProd>}
+                                  </DisplayQueryProd>}
                    <NavLinkStyles onClick={() => setOpen(false)} to={"FAQ"}>FAQ</NavLinkStyles>
-                   <NavLinkStyles onClick={() => setOpen(false)} to={"Sign in"}>Sign in</NavLinkStyles>
+                   <NavLinkStyles onClick={() => setOpen(false)} to={"Sign in"}>Newsletter</NavLinkStyles>
                    <NavLinkStyles onClick={() => setOpen(false)} to={"Cart"} ><FaShoppingCart />{subtotal > 0 && subtotal}</NavLinkStyles>
               
   

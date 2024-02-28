@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { GlobalStyles } from './components/styles/GlobalStyles.js'
+import App from './src/App.jsx'
+import { GlobalStyles } from './src/components/styles/GlobalStyles.js'
 import {Provider} from "react-redux"
 import {PersistGate} from "redux-persist/integration/react"
-import {persistor, store} from "./store.js"
+import {persistor, store} from "./src/store.js"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

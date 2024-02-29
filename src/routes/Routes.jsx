@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter,
          Routes as IgnigoRoutesDOM,
          Route } from "react-router-dom"
-import Home from "../components/Home/Home"
+import Home from "../components/Homee/Home"
 import FAQ from "../components/Pages/Faq/FAQ"
 import Layout from "../components/layout/Layout"
 import ProductsList from "../components/Pages/Products/ProductsList"
@@ -17,6 +17,7 @@ const Routes = () => {
          <Layout>
             <IgnigoRoutesDOM>
                 <Route path="/" element={<Home />} />
+
                 <Route path="FAQ" element={<FAQ />} />
                 <Route path="Sign In" element={<UserForm />} />
                 <Route path="Cart" element={<Cart />} />

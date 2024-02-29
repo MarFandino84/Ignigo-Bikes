@@ -4,7 +4,7 @@ import { BrowserRouter,
          Route } from "react-router-dom"
 import Home from "../components/Homee/Home"
 import FAQ from "../components/Pages/Faq/FAQ"
-import Layout from "../components/layout/Layout"
+import Layout from "../components/Layout/Layout"
 import ProductsList from "../components/Pages/Products/ProductsList"
 import ItemSection from "../components/Pages/ItemSection"
 import UserForm from "../components/Pages/User/UserForm"

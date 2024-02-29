@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const MainContainerStyles = styled.section`
-display: flex; flex-direction: column;
-align-content: center;
-background-color: white;
-width: 100vw; height: 75vh ;
-background-image: url("https://images.france.fr/zeaejvyq9bhj/5KHIvJAK6CFENAvDFz0qJ/fd14e48c3b69726031bf6b18efc1185e/tour-de-france.jpg?w=1120&h=490&q=70&fl=progressive&fit=fill");
-object-fit: contain; aspect-ratio: 16/9;
+margin-top: 0;
+min-width: 100vw; height: 75vh ;
+background-image: url("https://images2.giant-bicycles.com/b_white%2Cc_crop%2Ch_600%2Cq_70%2Cw_1920/w45vxgpklzil7mf8ehvj/GA-team-banner.jpg");
+object-fit: cover; aspect-ratio: 1/2;
+background-repeat: no-repeat;
 
-
-h3 {
-     position: relative; top: 3.5em;
+p {
+     font-weight : 750 ;
+     top: 9em; position: relative;
+     right: 1em;
      color: black; font-size: 2em;
      text-align: center;
      font-style: oblique;
+    
     
 }
 `

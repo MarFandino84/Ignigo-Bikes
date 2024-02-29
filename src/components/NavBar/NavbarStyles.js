@@ -19,6 +19,7 @@ height: auto;
 background-color: var(--sea-green);
 display: flex; justify-content: space-between;
 position: sticky; top: 0;
+margin-bottom: 0;
 
 img {
      min-height: 5em; width: 5em;
@@ -58,12 +59,11 @@ div {
 }    
 `
 export const DropDownMenu = styled(motion.div)`
-
   
   position: fixed;
   top: 6.5em;
   right: 0;
-  z-index: 1;
+  z-index: 99;
 
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@ position: fixed;
   background-color: var(--sea-green);
   border-radius:   1rem;
   box-shadow: 0 0 10px 10px;
- 
+  z-index: 1;
 ` 
 export const DisplayQueryProd = styled.div`
 width: auto; height: auto;

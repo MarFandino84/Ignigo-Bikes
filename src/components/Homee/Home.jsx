@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
     <MainContainerStyles>
-      <h3>Welcome to Ignigo Bikes</h3>
+      <p>Welcome to Ignigo Bikes</p>
     </MainContainerStyles>
 
 
